@@ -71,7 +71,12 @@ function PostCreateForm() {
     formData.append("movie_image", imageInput.current.files[0]);
 
     try {
-      const { data } = await axiosReq.post("/posts/", formData);
+      const token = localStorage.getItem('token');
+      const { data } = await axiosReq.post("/posts/", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+      });
       history.push(`/posts/${data.id}`);
     } catch (err) {
       console.log(err);

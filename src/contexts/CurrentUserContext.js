@@ -12,6 +12,7 @@ export const useSetCurrentUser = () => useContext(SetCurrentUserContext);
 export const CurrentUserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const history = useHistory();
+
   const refreshToken = localStorage.getItem("refresh_token");
   const token = localStorage.getItem("token");
 
@@ -33,7 +34,7 @@ export const CurrentUserProvider = ({ children }) => {
 
   useEffect(() => {
     handleMount();
-  }, []);
+  }, [refreshToken]);
 
   useMemo(() => {
     axiosReq.interceptors.request.use(
@@ -66,13 +67,20 @@ export const CurrentUserProvider = ({ children }) => {
       (response) => response,
       async (err) => {
         if (err.response?.status === 401) {
+          const refreshToken = localStorage.getItem("refresh_token");
+
           try {
-            console.log("succesfull res");
-            await axios.post("/dj-rest-auth/token/refresh/", {
+            const { data } = await axios.post("/dj-rest-auth/token/refresh/", {
               refresh: refreshToken,
             });
+
+            localStorage.setItem("token", data.access);
+            const config = err.config;
+            config.headers["Authorization"] = `Bearer ${data.access}`;
+            return axios(config);
+            
           } catch (err) {
-            console.log("unsuccesfull res", err);
+            console.log("token refresh failed", err);
             setCurrentUser((prevCurrentUser) => {
               if (prevCurrentUser) {
                 history.push("/signin");
@@ -85,7 +93,7 @@ export const CurrentUserProvider = ({ children }) => {
         return Promise.reject(err);
       }
     );
-  }, [history]);
+  }, [history, refreshToken]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
