@@ -35,6 +35,8 @@ function SignInForm() {
     try {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user);
+      localStorage.setItem("token", data.access_token);
+      localStorage.setItem("refresh_token", data.refresh_token);
       history.push("/");
     } catch (err) {
       setErrors(err.response?.data);
@@ -112,7 +114,9 @@ function SignInForm() {
       >
         <Image
           className={`${appStyles.FillerImage}`}
-          src={"https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero.jpg"}
+          src={
+            "https://res.cloudinary.com/dbkvb78gd/image/upload/v1742233292/2016movies-01-900x600-removebg-preview_ntcy76.png"
+          }
         />
       </Col>
     </Row>

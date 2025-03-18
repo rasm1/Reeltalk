@@ -36,12 +36,17 @@ const SignUpForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("/dj-rest-auth/registration/", signUpData);
+      const registrationresponse = await axios.post(
+        "/dj-rest-auth/registration/",
+        signUpData
+      );
+      localStorage.setItem("token", registrationresponse.data.access_token);
       history.push("/signin");
     } catch (err) {
       setErrors(err.response?.data);
     }
   };
+
   return (
     <Row className={styles.Row}>
       <Col className="my-auto py-2 p-md-2" md={6}>
