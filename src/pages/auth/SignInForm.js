@@ -17,6 +17,8 @@ import appStyles from "../../App.module.css";
 
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
+import { setTokenTimestamp } from "../../utils/utils";
+
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
@@ -39,6 +41,7 @@ function SignInForm() {
       setCurrentUser(data.user);
       localStorage.setItem("token", data.access_token);
       localStorage.setItem("refresh_token", data.refresh_token);
+      setTokenTimestamp(data)
       history.goBack();
     } catch (err) {
       setErrors(err.response?.data);

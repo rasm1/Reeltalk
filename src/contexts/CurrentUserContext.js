@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useHistory } from "react-router";
+import { removeTokenTimestamp, shouldRefreshToken } from "../utils/utils";
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -23,12 +24,9 @@ export const CurrentUserProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         },
       });
-
       setCurrentUser(data);
-      console.log(data);
     } catch (err) {
-      console.log(err);
-      console.log("This is a string, look at me!");
+      // console.log(err);
     }
   };
 
@@ -39,23 +37,27 @@ export const CurrentUserProvider = ({ children }) => {
   useMemo(() => {
     axiosReq.interceptors.request.use(
       async (config) => {
-        const token = localStorage.getItem("token");
-        if (token) {
-          config.headers["Authorization"] = `Bearer ${token}`;
+        if (shouldRefreshToken()) {
+          const token = localStorage.getItem("token");
+          if (token) {
+            config.headers["Authorization"] = `Bearer ${token}`;
+          }
+          try {
+            await axios.post("/dj-rest-auth/token/refresh/");
+          } catch (err) {
+            setCurrentUser((prevCurrentUser) => {
+              if (prevCurrentUser) {
+                history.push("/signin");
+              }
+              return null;
+            });
+            removeTokenTimestamp();
+            localStorage.removeItem("token");
+            localStorage.removeItem("refresh_token");
+            return config;
+          }
         }
-        try {
-          console.log("succesfull req");
-          await axios.post("/dj-rest-auth/token/refresh/");
-        } catch (err) {
-          setCurrentUser((prevCurrentUser) => {
-            console.log("unsuccesfull req", prevCurrentUser);
-            if (prevCurrentUser) {
-              history.push("/signin");
-            }
-            return null;
-          });
-          return config;
-        }
+
         return config;
       },
       (err) => {
@@ -78,15 +80,16 @@ export const CurrentUserProvider = ({ children }) => {
             const config = err.config;
             config.headers["Authorization"] = `Bearer ${data.access}`;
             return axios(config);
-            
           } catch (err) {
-            console.log("token refresh failed", err);
             setCurrentUser((prevCurrentUser) => {
               if (prevCurrentUser) {
                 history.push("/signin");
               }
               return null;
             });
+            removeTokenTimestamp();
+            localStorage.removeItem("token");
+            localStorage.removeItem("refresh_token");
           }
           return axios(err.config);
         }
