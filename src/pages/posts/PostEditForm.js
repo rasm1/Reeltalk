@@ -104,7 +104,7 @@ function PostEditForm() {
     formData.append("movie_spoilers", spoilers);
 
     if (imageInput?.current?.files[0]) {
-      formData.append("movie_image", imageInput.current.files[0]);
+      formData.append("image", imageInput.current.files[0]);
     }
     try {
       const token = localStorage.getItem("token");

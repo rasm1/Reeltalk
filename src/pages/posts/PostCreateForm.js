@@ -28,7 +28,7 @@ function PostCreateForm() {
     moviepositives: "",
     movienegatives: "",
     spoilers: false,
-    image: "",
+    image: null,
   });
   const {
     title,
@@ -39,7 +39,6 @@ function PostCreateForm() {
     spoilers,
     image,
   } = postData;
-
   const imageInput = useRef(null);
   const history = useHistory();
 
@@ -70,7 +69,7 @@ function PostCreateForm() {
     formData.append("movie_positives", moviepositives);
     formData.append("movie_negatives", movienegatives);
     formData.append("movie_spoilers", spoilers);
-    formData.append("movie_image", imageInput.current.files[0]);
+    formData.append("image", imageInput.current.files[0]);
 
     try {
       const token = localStorage.getItem('token');
