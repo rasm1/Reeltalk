@@ -404,7 +404,7 @@ This site is deployed using Heroku. To deploy it from its GitHub repository to H
 8. Create a _Procfile_ in the root directory and add *web: npm run start*
 9. In Heroku enable the automatic deploy or manually deploy the code from the main branch
 
-To see the [view of the live site NOG TE IMPLEMENTEREN](https://groovemates-frontend-b3335269700f.herokuapp.com/) click on the _Open app_ button in the top right corner or, if you enabled automatic deploy (step 10), log in to GitHub, navigate to the repository for this project by selecting [Reeltalk](https://github.com/rasm1/Reeltalk), click on _Deployment_ and choose in the _Environments_ section  Reeltalk. <br>
+To see the [view of the live site ](https://reeltalk-api-a79479495f97.herokuapp.com/) click on the _Open app_ button in the top right corner or, if you enabled automatic deploy (step 10), log in to GitHub, navigate to the repository for this project by selecting [Reeltalk](https://github.com/rasm1/Reeltalk), click on _Deployment_ and choose in the _Environments_ section  Reeltalk. <br>
 
 ### Forking this GitHub repository
 1.  Log in to GitHub.
