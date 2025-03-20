@@ -28,7 +28,6 @@ const Post = (props) => {
     postPage,
     setPosts,
   } = props;
-  console.log("Image URL:", image);
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();

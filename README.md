@@ -2,24 +2,23 @@
 
 **Advanced Front-End Portfolio Project(PP5) - Code Institute**
 
-View the deployed site [here. NOG TE IMPLEMENTEREN]()<br>
+View the deployed site [here](https://reeltalk-project-74cd4a21e230.herokuapp.com/)<br>
 
 The goal of this project is to create a vibrant online platform where movie enthusiasts can connect and discover new movies and share their opinions on their favorite movies By sharing and exploring these posts, users can easily find new and exciting movies and discuss their opinions.As an avid movie enthusiast I would love the idea of an open and friendly community where users can freely discuss their opinions and share their opinions on their favorite momvies.
 
 The Reeltalk frontend is the user interface component of the Reeltalk application, designed with React to provide an engaging and intuitive experience for users interacting with the social network. It connects with the [Reeltalk Backend API](https://reeltalk-api-a79479495f97.herokuapp.com), enhancing user experience by offering a responsive and dynamic interface.
 
-![Screenshot of the preview of application NOG TE IMPLEMENTEREN]()<br>
+![AmIResponsive](src/documentation/repsonsive-reeltalk.png)<br>
 
 #### Note
 Due to severe time constraints much of this project has been left unfinished. Development on Reeltalk will resume after submission
 ## Table of contents
 
 - [User Experience](#user-experience)
-  - [Epics and User stories](#epics-and-user-stories)
+  - [ User stories](#epics-and-user-stories)
 - [Design](#design)
   - [Wireframes](#wireframes)
   - [Logo](#logo)
-  - [Favicon](#favicon)
   - [Typography](#typography)
 - [Structure](#structure)
 - [Features](#features)
@@ -31,11 +30,8 @@ Due to severe time constraints much of this project has been left unfinished. De
   - [Frameworks](#frameworks)
   - [Libraries and modules](#libraries-and-modules)
 - [Testing](#testing)
-  - [Validator Testing](#validator-testing)
-  - [Lighthouse Test](#lighthouse-test)
   - [Manual testing](#manual-testing)
   - [Browser Compatibility](#browser-compatibility)
-  - [Automated Testing](#automated-testing)
 - [Deployment](#deployment)
   - [Heroku](#heroku)
   - [Local deployment](#local-deployment)
