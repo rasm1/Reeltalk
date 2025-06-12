@@ -8,6 +8,7 @@ import Profile from "./Profile";
 const PopularProfiles = ({ mobile }) => {
   const { popularProfiles } = useProfileData();
 
+  console.log("Popular Profiles Data:", popularProfiles.results);
   return (
     <Container
       className={`${appStyles.Content} ${
@@ -23,6 +24,7 @@ const PopularProfiles = ({ mobile }) => {
                 <Profile key={profile.id} profile={profile} mobile />
               ))}
             </div>
+            
           ) : (
             popularProfiles.results.map((profile) => (
               <Profile key={profile.id} profile={profile} />
@@ -34,6 +36,7 @@ const PopularProfiles = ({ mobile }) => {
       )}
     </Container>
   );
+  
 };
 
 export default PopularProfiles;

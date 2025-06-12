@@ -47,11 +47,11 @@ function PostEditForm() {
         const { data } = await axiosReq.get(`/posts/${id}/`);
         const {
           title,
-          movietitle,
+          movie_title,
           content,
-          moviepositives,
-          movienegatives,
-          spoilers,
+          movie_positives,
+          movie_negatives,
+          movie_spoilers,
           image,
           is_owner,
         } = data;
@@ -59,17 +59,15 @@ function PostEditForm() {
         is_owner
           ? setPostData({
               title,
-              movietitle,
+              movietitle: movie_title,
               content,
-              moviepositives,
-              movienegatives,
-              spoilers,
+              moviepositives: movie_positives,
+              movienegatives: movie_negatives,
+              spoilers: movie_spoilers,
               image,
             })
           : history.push("/");
-      } catch (err) {
-      //  console.log(err);
-      }
+      } catch (err) {}
     };
 
     handleMount();
@@ -115,7 +113,7 @@ function PostEditForm() {
       });
       history.push(`/posts/${id}`);
     } catch (err) {
-    //  console.log(err);
+      //  console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
