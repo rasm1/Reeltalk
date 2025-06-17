@@ -29,6 +29,7 @@ function PostPage() {
         setComments(comments);
       } catch (err) {
       }
+      console.log(post.results[0]);
     };
 
     handleMount();
