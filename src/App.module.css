@@ -1,6 +1,6 @@
 .App {
   font-family: "DM Sans", sans-serif;
-  background-color: #f8f8f8;
+  background-color: #2c3440;
   min-height: 100vh;
 }
 
@@ -32,7 +32,7 @@
 }
 
 a {
-  color: #555555;
+  color: #d8e0e8;
   transition: color ease-in-out 0.3s;
 }
 
