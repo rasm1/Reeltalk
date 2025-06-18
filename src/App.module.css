@@ -32,7 +32,7 @@
 }
 
 a {
-  color: #d8e0e8;
+  color: #ffffff;
   transition: color ease-in-out 0.3s;
 }
 
@@ -41,7 +41,7 @@ a:hover {
 }
 
 a:hover i {
-  color: #2142b2;
+  color: #ffffff;
   transition: color ease-in-out 0.3s;
 }
 
