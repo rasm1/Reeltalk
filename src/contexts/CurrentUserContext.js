@@ -26,7 +26,7 @@ export const CurrentUserProvider = ({ children }) => {
       });
       setCurrentUser(data);
     } catch (err) {
-      // console.log(err);
+
     }
   };
 

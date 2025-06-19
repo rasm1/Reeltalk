@@ -28,9 +28,9 @@ const ProfileEditForm = () => {
   const [profileData, setProfileData] = useState({
     name: "",
     content: "",
-    image: "",
+    profile_image: "",
   });
-  const { name, content, image } = profileData;
+  const { name, content, profile_image } = profileData;
 
   const [errors, setErrors] = useState({});
 
@@ -42,7 +42,7 @@ const ProfileEditForm = () => {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
           const { name, content, image } = data;
-          setProfileData({ name, content, image });
+          setProfileData({ name, content, profile_image });
         } catch (err) {
           //  console.log(err);
           history.push("/");
@@ -76,7 +76,7 @@ const ProfileEditForm = () => {
       const { data } = await axiosReq.put(`/profiles/${id}/`, formData);
       setCurrentUser((currentUser) => ({
         ...currentUser,
-        profile_image: data.image,
+        profile_image: data.profile_image,
       }));
       history.goBack();
     } catch (err) {
@@ -123,7 +123,7 @@ const ProfileEditForm = () => {
             <Form.Group>
               {image && (
                 <figure>
-                  <Image src={preview || image} fluid />
+                  <Image src={preview || profile_image} fluid />
                 </figure>
               )}
               {errors?.image?.map((message, idx) => (
