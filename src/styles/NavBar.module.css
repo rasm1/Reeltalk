@@ -4,6 +4,15 @@
     margin: -5px;
 }
 
+.CustomToggler {
+  background: none;
+  border: none;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .NavLink {
     padding: 5px;
 

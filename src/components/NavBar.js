@@ -25,8 +25,8 @@ const NavBar = () => {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
       removeTokenTimestamp();
-      localStorage.removeItem('token')
-      localStorage.removeItem('refresh_token')
+      localStorage.removeItem("token");
+      localStorage.removeItem("refresh_token");
     } catch (err) {
       // console.log(err);
     }
@@ -64,7 +64,11 @@ const NavBar = () => {
         className={styles.NavLink}
         to={`/profiles/${currentUser?.profile_id}`}
       >
-        <Avatar src={currentUser?.profile_image} text={currentUser?.username || "Profile"} height={40} />
+        <Avatar
+          src={currentUser?.profile_image}
+          text={currentUser?.username || "Profile"}
+          height={40}
+        />
       </NavLink>
     </>
   );
@@ -101,11 +105,19 @@ const NavBar = () => {
           </Navbar.Brand>
         </NavLink>
         {currentUser && addPostIcon}
-        <Navbar.Toggle
+        <button
           ref={ref}
           onClick={() => setExpanded(!expanded)}
+          className={`navbar-toggler ${styles.CustomToggler}`}
           aria-controls="basic-navbar-nav"
-        />
+          aria-expanded={expanded}
+          aria-label="Toggle navigation"
+        >
+          <i
+            className="fas fa-bars"
+            style={{ color: "white", fontSize: "24px" }}
+          ></i>
+        </button>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
             <NavLink
