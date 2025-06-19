@@ -2,14 +2,16 @@
     height: calc(100vh - 81px);
   }
   .Input {
-    background: #ffffff;
+    background-color: hsla(0, 0%, 100%, .25);
     border: 1px solid #f0f1f9;
     box-sizing: border-box;
-    border-radius: 2px;
-    color: #7177a1;
+    border-radius: 20px;
+    color: #545865;
     text-align: center;
     padding: 10px;
+    transition: background-color .4s cubic-bezier(.165,.84,.44,1);
   }
+  
   
   .Header {
     font-style: normal;
