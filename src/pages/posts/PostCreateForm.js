@@ -18,7 +18,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 
 function PostCreateForm() {
-  useRedirect('loggedOut');
+  useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
@@ -72,15 +72,15 @@ function PostCreateForm() {
     formData.append("image", imageInput.current.files[0]);
 
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
       const { data } = await axiosReq.post("/posts/", formData, {
         headers: {
           Authorization: `Bearer ${token}`,
-        }
+        },
       });
       history.push(`/posts/${data.id}`);
     } catch (err) {
-     // console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -159,14 +159,18 @@ function PostCreateForm() {
           {message}
         </Alert>
       ))}
-      <Form.Group>
-        <Form.Label>spoilers?</Form.Label>
-        <Form.Control
+      <Form.Group controlId="spoilers">
+        <Form.Check
           type="checkbox"
           label="Contains Spoilers?"
           name="spoilers"
-          value={spoilers}
-          onChange={handleChange}
+          checked={spoilers}
+          onChange={(e) =>
+            setPostData({
+              ...postData,
+              spoilers: e.target.checked,
+            })
+          }
         />
       </Form.Group>
       {errors?.spoilers?.map((message, idx) => (
