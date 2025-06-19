@@ -179,13 +179,18 @@ function PostEditForm() {
           {message}
         </Alert>
       ))}
-      <Form.Group>
-        <Form.Label>Movie negatives</Form.Label>
-        <Form.Control
-          type="text"
-          name="movienegatives"
-          value={movienegatives}
-          onChange={handleChange}
+      <Form.Group controlId="spoilers">
+        <Form.Check
+          type="checkbox"
+          label="Contains Spoilers?"
+          name="spoilers"
+          checked={spoilers}
+          onChange={(e) =>
+            setPostData({
+              ...postData,
+              spoilers: e.target.checked,
+            })
+          }
         />
       </Form.Group>
       {errors?.movienegatives?.map((message, idx) => (
