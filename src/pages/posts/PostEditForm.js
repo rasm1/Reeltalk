@@ -179,6 +179,20 @@ function PostEditForm() {
           {message}
         </Alert>
       ))}
+      <Form.Group>
+        <Form.Label>Movie negatives</Form.Label>
+        <Form.Control
+          type="text"
+          name="movienegatives"
+          value={movienegatives}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.movienegatives?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group controlId="spoilers">
         <Form.Check
           type="checkbox"
@@ -191,21 +205,6 @@ function PostEditForm() {
               spoilers: e.target.checked,
             })
           }
-        />
-      </Form.Group>
-      {errors?.movienegatives?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>spoilers?</Form.Label>
-        <Form.Control
-          type="checkbox"
-          label="Contains Spoilers?"
-          name="spoilers"
-          value={spoilers}
-          onChange={handleChange}
         />
       </Form.Group>
       {errors?.spoilers?.map((message, idx) => (
