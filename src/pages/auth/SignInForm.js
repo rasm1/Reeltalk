@@ -8,7 +8,6 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";
-import Notification from "../../components/Notification";
 import { Link, useHistory } from "react-router-dom";
 
 import styles from "../../styles/SignInUpForm.module.css";
@@ -41,11 +40,10 @@ function SignInForm() {
       localStorage.setItem("token", data.access_token);
       localStorage.setItem("refresh_token", data.refresh_token);
       setTokenTimestamp(data);
-      setShowNotification(true);
-      setTimeout(() => {
-        history.goBack();
-        setShowNotification(false);
-      }, 2000);
+      history.push({
+        pathname: "/", 
+        state: { showNotification: true },
+      });
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -59,12 +57,6 @@ function SignInForm() {
   };
 
   return (
-    <>
-      <Notification
-        show={showNotification}
-        message="Successfully signed in!"
-        onClose={() => setShowNotification(false)}
-      />
       <Row className={styles.Row}>
         <Col className="my-auto p-0 p-md-2" md={6}>
           <Container className={`${appStyles.Content} p-4 `}>
@@ -134,7 +126,6 @@ function SignInForm() {
           />
         </Col>
       </Row>
-    </>
   );
 }
 
