@@ -34,6 +34,8 @@ const ProfileEditForm = () => {
 
   const [errors, setErrors] = useState({});
 
+  const [preview, setPreview] = useState("");
+
   useEffect(() => {
     const handleMount = async () => {
       if (currentUser?.profile_id?.toString() === id) {
@@ -42,7 +44,7 @@ const ProfileEditForm = () => {
           const { name, content, image } = data;
           setProfileData({ name, content, image });
         } catch (err) {
-        //  console.log(err);
+          //  console.log(err);
           history.push("/");
         }
       } else {
@@ -78,7 +80,7 @@ const ProfileEditForm = () => {
       }));
       history.goBack();
     } catch (err) {
-    //  console.log(err);
+      //  console.log(err);
       setErrors(err.response?.data);
     }
   };
@@ -121,7 +123,7 @@ const ProfileEditForm = () => {
             <Form.Group>
               {image && (
                 <figure>
-                  <Image src={image} fluid />
+                  <Image src={preview || image} fluid />
                 </figure>
               )}
               {errors?.image?.map((message, idx) => (
@@ -143,10 +145,7 @@ const ProfileEditForm = () => {
                 accept="image/*"
                 onChange={(e) => {
                   if (e.target.files.length) {
-                    setProfileData({
-                      ...profileData,
-                      image: URL.createObjectURL(e.target.files[0]),
-                    });
+                    setPreview(URL.createObjectURL(e.target.files[0]));
                   }
                 }}
               />
