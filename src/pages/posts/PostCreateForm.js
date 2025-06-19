@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-
+import Notification from "../../components/Notification";
 import Upload from "../../assets/upload.png";
 
 import styles from "../../styles/PostCreateEditForm.module.css";
@@ -20,7 +20,7 @@ import { useRedirect } from "../../hooks/useRedirect";
 function PostCreateForm() {
   useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
-
+  const [showNotification, setShowNotification] = useState(false);
   const [postData, setPostData] = useState({
     title: "",
     movietitle: "",
@@ -78,7 +78,11 @@ function PostCreateForm() {
           Authorization: `Bearer ${token}`,
         },
       });
-      history.push(`/posts/${data.id}`);
+      setShowNotification(true);
+      setTimeout(() => {
+        setShowNotification(true);
+        history.push(`/posts/${data.id}`);
+      }, 2000);
     } catch (err) {
       // console.log(err);
       if (err.response?.status !== 401) {
