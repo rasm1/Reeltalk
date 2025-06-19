@@ -43,8 +43,8 @@ function SignInForm() {
       setTokenTimestamp(data);
       setShowNotification(true);
       setTimeout(() => {
-        setShowNotification(false);
         history.goBack();
+        setShowNotification(false);
       }, 2000);
     } catch (err) {
       setErrors(err.response?.data);
