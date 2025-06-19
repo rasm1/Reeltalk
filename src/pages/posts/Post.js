@@ -48,14 +48,17 @@ const Post = (props) => {
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { post: id });
-      setPosts((prevPosts) => ({
-        ...prevPosts,
-        results: prevPosts.results.map((post) => {
-          return post.id === id
-            ? { ...post, likes_count: (post.likes_count || 0) + 1, like_id: data.id }
-            : post;
-        }),
-      }));
+      setPosts((prevPosts) => {
+        const updatedPost = {
+          ...prevPosts.results[0],
+          likes_count: (prevPosts.results[0].likes_count || 0) + 1,
+          like_id: data.id,
+        };
+        return {
+          ...prevPosts,
+          results: [updatedPost],
+        };
+      });
     } catch (err) {
       // console.log(err);
     }
@@ -68,7 +71,11 @@ const Post = (props) => {
         ...prevPosts,
         results: prevPosts.results.map((post) => {
           return post.id === id
-            ? { ...post, likes_count: Math.max((post.likes_count || 1) - 1, 0), like_id: null }
+            ? {
+                ...post,
+                likes_count: Math.max((post.likes_count || 1) - 1, 0),
+                like_id: null,
+              }
             : post;
         }),
       }));
