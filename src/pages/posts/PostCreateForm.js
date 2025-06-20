@@ -67,11 +67,8 @@ function PostCreateForm() {
     formData.append("movie_positives", moviepositives);
     formData.append("movie_negatives", movienegatives);
     formData.append("movie_spoilers", spoilers);
-    if (imageInput.current?.files.length) {
-      formData.append("image", imageInput.current.files[0]);
-    } else {
-      formData.append("image", "");
-    }
+    formData.append("image", imageInput.current.files[0]);
+    
     try {
       const token = localStorage.getItem("token");
       const { data } = await axiosReq.post("/posts/", formData, {
