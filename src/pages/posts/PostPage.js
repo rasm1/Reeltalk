@@ -19,6 +19,10 @@ function PostPage() {
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
+  const [notificationComment, setNotificationComment] = useState({
+    show: false,
+    message: "",
+  });
   const [notification, setNotification] = useState({
     show: false,
     message: "",
@@ -61,7 +65,12 @@ function PostPage() {
       <Notification
         show={notification.show}
         message={notification.message}
-        onClose={() => setNotification({show: false, message: ""})}
+        onClose={() => setNotification({ show: false, message: "" })}
+      />
+      <Notification
+        show={notificationComment.show}
+        message={notificationComment.message}
+        onClose={() => setNotificationComment({ show: false, message: "" })}
       />
       <Row className="h-100">
         <Col className="py-2 p-0 p-lg-2" lg={8}>
