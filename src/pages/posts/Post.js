@@ -40,7 +40,7 @@ const Post = (props) => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
       history.push({
-        pathname: "/posts",
+        pathname: "/",
         state: {
           showNotification: true,
           message: "Post deleted successfully!",
