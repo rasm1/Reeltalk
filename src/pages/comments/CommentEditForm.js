@@ -36,7 +36,7 @@ function CommentEditForm(props) {
       setShowEditForm(false);
       setNotificationComment({
         show: true,
-        message: "Comment edited successfully!",
+        message: "Comment edited successfully!"
       });
     } catch (err) {
       //  console.log(err);
