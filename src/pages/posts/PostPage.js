@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container";
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import appStyles from "../../App.module.css";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
 import Comment from "../comments/Comment";
@@ -59,9 +59,9 @@ function PostPage() {
   return (
     <>
       <Notification
-        show={showNotification}
+        show={notification.show}
         message={notification.message}
-        onClose={() => setShowNotification({show: false, message: ""})}
+        onClose={() => setNotification({show: false, message: ""})}
       />
       <Row className="h-100">
         <Col className="py-2 p-0 p-lg-2" lg={8}>
