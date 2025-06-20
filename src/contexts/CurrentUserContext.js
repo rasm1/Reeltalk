@@ -25,9 +25,7 @@ export const CurrentUserProvider = ({ children }) => {
         },
       });
       setCurrentUser(data);
-    } catch (err) {
-
-    }
+    } catch (err) {}
   };
 
   useEffect(() => {
@@ -83,7 +81,13 @@ export const CurrentUserProvider = ({ children }) => {
           } catch (err) {
             setCurrentUser((prevCurrentUser) => {
               if (prevCurrentUser) {
-                history.push("/signin");
+                history.push({
+                  pathname: "/signin",
+                  state: {
+                    showNotification: true,
+                    message: "Signed out successfully!",
+                  },
+                });
               }
               return null;
             });
