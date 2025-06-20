@@ -69,6 +69,7 @@ function PostPage() {
 
     handleMount();
   }, [id]);
+  console.log(notificationComment)
   return (
     <>
       <Notification

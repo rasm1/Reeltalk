@@ -61,6 +61,7 @@ const Comment = (props) => {
               profileImage={profile_image}
               setComments={setComments}
               setShowEditForm={setShowEditForm}
+              setNotificationComment={setNotificationComment}
             />
           ) : (
             <p>{content}</p>
