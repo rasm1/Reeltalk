@@ -39,7 +39,13 @@ const Post = (props) => {
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
-      history.goBack();
+      history.push({
+        pathname: "/posts",
+        state: {
+          showNotification: true,
+          message: "Post deleted successfully!",
+        },
+      });
     } catch (err) {
       // console.log(err);
     }
@@ -47,7 +53,7 @@ const Post = (props) => {
 
   const handleLike = async () => {
     try {
-       console.log("Liking post with id:", id);
+      console.log("Liking post with id:", id);
       const { data } = await axiosRes.post("/likes/", { post: id });
       console.log("Response from like request:", data);
       setPosts((prevPosts) => ({
@@ -55,7 +61,11 @@ const Post = (props) => {
         results: prevPosts.results.map((post) => {
           console.log("Checking post:", post.id);
           return post.id === id
-            ? { ...post, likes_count: (post.likes_count || 0) + 1, like_id: data.id }
+            ? {
+                ...post,
+                likes_count: (post.likes_count || 0) + 1,
+                like_id: data.id,
+              }
             : post;
         }),
       }));
@@ -71,7 +81,11 @@ const Post = (props) => {
         ...prevPosts,
         results: prevPosts.results.map((post) => {
           return post.id === id
-            ? { ...post, likes_count: Math.max((post.likes_count || 1) - 1, 0), like_id: null }
+            ? {
+                ...post,
+                likes_count: Math.max((post.likes_count || 1) - 1, 0),
+                like_id: null,
+              }
             : post;
         }),
       }));
