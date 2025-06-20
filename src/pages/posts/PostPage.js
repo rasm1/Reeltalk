@@ -75,6 +75,7 @@ function PostPage() {
                 post={id}
                 setPost={setPost}
                 setComments={setComments}
+                setNotificationComment={setNotificationComment}
               />
             ) : comments.results.length ? (
               "Comments"

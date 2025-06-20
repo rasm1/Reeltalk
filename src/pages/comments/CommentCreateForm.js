@@ -9,7 +9,7 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
 function CommentCreateForm(props) {
-  const { post, setPost, setComments, profileImage, profile_id } = props;
+  const { post, setPost, setComments, profileImage, profile_id, setNotificationComment } = props;
   const [content, setContent] = useState("");
 
   const handleChange = (event) => {
@@ -36,8 +36,8 @@ function CommentCreateForm(props) {
         ],
       }));
       setContent("");
-    } catch (err) {
-    }
+      setNotificationComment({ show: true, message: "Comment submitted successfully!" });
+    } catch (err) {}
   };
 
   return (
