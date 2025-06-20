@@ -105,6 +105,7 @@ function PostPage() {
                   {...comment}
                   setPost={setPost}
                   setComments={setComments}
+                  setNotificationComment={setNotificationComment}
                 />
               ))
             ) : currentUser ? (

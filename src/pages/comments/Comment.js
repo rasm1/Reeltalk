@@ -17,6 +17,7 @@ const Comment = (props) => {
     id,
     setPost,
     setComments,
+    setNotificationComment,
   } = props;
 
   const [showEditForm, setShowEditForm] = useState(false);
