@@ -32,6 +32,7 @@ const Post = (props) => {
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
   console.log("POST INFO: ", Post)
+  console.log("POST INFO PROPS: ", props)
 
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
@@ -57,6 +58,7 @@ const Post = (props) => {
       console.log("Liking post with id:", id);
       const { data } = await axiosRes.post("/likes/", { post: id });
       console.log("Response from like request:", data);
+      
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
