@@ -31,8 +31,6 @@ const Post = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
-  console.log("POST INFO: ", Post)
-  console.log("POST INFO PROPS: ", props)
 
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
@@ -49,20 +47,16 @@ const Post = (props) => {
         },
       });
     } catch (err) {
-      // console.log(err);
     }
   };
 
   const handleLike = async () => {
     try {
-      console.log("Liking post with id:", id);
       const { data } = await axiosRes.post("/likes/", { post: id });
-      console.log("Response from like request:", data);
       
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
-          console.log("Checking post:", post.id);
           return post.id === id
             ? {
                 ...post,
@@ -73,7 +67,6 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      console.error("Error during like request:", err);
     }
   };
 
@@ -93,7 +86,6 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      // console.log(err);
     }
   };
   return (

@@ -34,14 +34,11 @@ function CommentEditForm(props) {
         }),
       }));
       setShowEditForm(false);
-      console.log("Setting notification");
       setNotificationComment({
         show: true,
-        message: "Comment edited successfully!"
+        message: "Comment edited successfully!",
       });
-    } catch (err) {
-      //  console.log(err);
-    }
+    } catch (err) {}
   };
 
   return (

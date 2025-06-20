@@ -116,7 +116,6 @@ function PostEditForm() {
         state: { showNotification: true, message: 'Post edited succesfully!' },
       });
     } catch (err) {
-      //  console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

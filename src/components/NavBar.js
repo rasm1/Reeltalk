@@ -30,7 +30,6 @@ const NavBar = () => {
       localStorage.removeItem("token");
       localStorage.removeItem("refresh_token");
     } catch (err) {
-      // console.log(err);
     }
   };
 
