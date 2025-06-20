@@ -19,17 +19,23 @@ function PostPage() {
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
-  const [showNotification, setShowNotification] = useState(false);
+  const [notification, setNotification] = useState({
+    show: false,
+    message: "",
+  });
   const location = useLocation();
 
   useEffect(() => {
     if (location.state?.showNotification) {
-      setShowNotification(true);
+      setNotification({
+        show: true,
+        message: location.state.message || "Action completed successfully!",
+      });
 
       window.history.replaceState({}, document.title);
 
       const timer = setTimeout(() => {
-        setShowNotification(false);
+        setNotification({ show: false, message: "" });
       }, 2000);
 
       return () => clearTimeout(timer);
@@ -54,8 +60,8 @@ function PostPage() {
     <>
       <Notification
         show={showNotification}
-        message="Post created successfully!"
-        onClose={() => setShowNotification(false)}
+        message={notification.message}
+        onClose={() => setShowNotification({show: false, message: ""})}
       />
       <Row className="h-100">
         <Col className="py-2 p-0 p-lg-2" lg={8}>

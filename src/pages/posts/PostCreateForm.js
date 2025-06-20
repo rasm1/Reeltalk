@@ -78,7 +78,9 @@ function PostCreateForm() {
       });
       history.push({
         pathname: `/posts/${data.id}`,
-        state: { showNotification: true },
+        state: { showNotification: true,
+          message: 'Post created succesfully!'
+         },
       });
     } catch (err) {
       // console.log(err);
