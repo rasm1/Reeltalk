@@ -43,7 +43,10 @@ const SignUpForm = () => {
         signUpData
       );
       localStorage.setItem("token", registrationresponse.data.access_token);
-      history.push("/signin");
+      history.push({
+        pathname: "/",
+        state: { showNotification: true, message: "Signed up successfully!" },
+      });
     } catch (err) {
       setErrors(err.response?.data);
     }
