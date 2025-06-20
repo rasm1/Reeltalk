@@ -11,10 +11,12 @@ import {
 } from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
 import axios from "axios";
+import { useHistory } from "react-router";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
 
 const NavBar = () => {
+  const history = useHistory();
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
