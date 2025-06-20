@@ -47,6 +47,15 @@ function PostPage() {
   }, [location.state]);
 
   useEffect(() => {
+    if (notificationComment.show) {
+      const timer = setTimeout(() => {
+        setNotificationComment({ show: false, message: "" });
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [notificationComment]);
+  useEffect(() => {
     const handleMount = async () => {
       try {
         const [{ data: post }, { data: comments }] = await Promise.all([
