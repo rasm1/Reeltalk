@@ -63,7 +63,7 @@ function PostsPage({ message, filter = "" }) {
     <>
       <Notification
         show={showNotification}
-        message="Successfully signed in!"
+        message={location.state?.message || "Action completed successfully!"}
         onClose={() => setShowNotification(false)}
       />
       <Row className="h-100">
