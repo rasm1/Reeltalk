@@ -29,9 +29,6 @@ const NavBar = () => {
       removeTokenTimestamp();
       localStorage.removeItem("token");
       localStorage.removeItem("refresh_token");
-      history.push({
-        state: { showNotification: true, message: "Signed out successfully!" },
-      });
     } catch (err) {
       // console.log(err);
     }
