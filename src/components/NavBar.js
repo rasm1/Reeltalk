@@ -105,6 +105,7 @@ const NavBar = () => {
             <img src={logo} alt="logo" height="45" />
           </Navbar.Brand>
         </NavLink>
+        <h1>Reeltalk</h1>
         {currentUser && addPostIcon}
         <button
           ref={ref}
