@@ -50,7 +50,7 @@ function PostPage() {
     if (notificationComment.show) {
       const timer = setTimeout(() => {
         setNotificationComment({ show: false, message: "" });
-      }, 2000);
+      }, 5000);
 
       return () => clearTimeout(timer);
     }
