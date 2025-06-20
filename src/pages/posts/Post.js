@@ -46,14 +46,13 @@ const Post = (props) => {
           message: "Post deleted successfully!",
         },
       });
-    } catch (err) {
-    }
+    } catch (err) {}
   };
 
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { post: id });
-      
+
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
@@ -66,8 +65,7 @@ const Post = (props) => {
             : post;
         }),
       }));
-    } catch (err) {
-    }
+    } catch (err) {}
   };
 
   const handleUnlike = async () => {
@@ -85,8 +83,7 @@ const Post = (props) => {
             : post;
         }),
       }));
-    } catch (err) {
-    }
+    } catch (err) {}
   };
   return (
     <Card className={styles.Post}>
@@ -107,9 +104,11 @@ const Post = (props) => {
           </div>
         </Media>
       </Card.Body>
-      <Link to={`/posts/${id}`}>
-        <Card.Img src={image} alt={title} />
-      </Link>
+      {image && (
+        <Link to={`/posts/${id}`}>
+          <Card.Img src={image} alt={title} />
+        </Link>
+      )}
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {movietitle && <Card.Text>{movietitle}</Card.Text>}
