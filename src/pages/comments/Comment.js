@@ -40,6 +40,10 @@ const Comment = (props) => {
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),
       }));
+      setNotificationComment({
+        show: true,
+        message: "Comment deleted successfully!",
+      });
     } catch (err) {}
   };
 
