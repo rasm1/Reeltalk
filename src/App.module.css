@@ -46,6 +46,11 @@ a:hover {
   text-decoration: none;
 }
 
+.Notification {
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
 a:hover i {
   color: #ffffff;
   transition: color ease-in-out 0.3s;

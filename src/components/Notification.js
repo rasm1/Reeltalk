@@ -1,5 +1,6 @@
 import React from "react";
 import { Alert } from "react-bootstrap";
+import styles from "../styles/Asset.module.css";
 
 const Notification = ({ show, message, variant = "success", onClose }) => {
   if (!show) return null;
