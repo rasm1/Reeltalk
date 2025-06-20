@@ -111,7 +111,10 @@ function PostEditForm() {
           Authorization: `Bearer ${token}`,
         },
       });
-      history.push(`/posts/${id}`);
+      history.push({
+        pathname: `/posts/${id}`,
+        state: { showNotification: true, message: 'Post edited succesfully!' },
+      });
     } catch (err) {
       //  console.log(err);
       if (err.response?.status !== 401) {
