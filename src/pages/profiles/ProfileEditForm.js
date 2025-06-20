@@ -69,7 +69,7 @@ const ProfileEditForm = () => {
     formData.append("content", content);
 
     if (imageFile?.current?.files[0]) {
-      formData.append("profile_image", imageFile?.current?.files[0]);
+      formData.append("image", imageFile?.current?.files[0]);
     }
 
     try {
