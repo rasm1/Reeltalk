@@ -39,6 +39,18 @@ export const CurrentUserProvider = ({ children }) => {
           if (token) {
             config.headers["Authorization"] = `Bearer ${token}`;
           }
+          if (!refreshToken) {
+            setCurrentUser((prevCurrentUser) => {
+              if (prevCurrentUser) {
+                history.push("/signin");
+              }
+              return null;
+            });
+            removeTokenTimestamp();
+            localStorage.removeItem("token");
+            localStorage.removeItem("refresh_token");
+            return config;
+          }
           try {
             await axios.post("/dj-rest-auth/token/refresh/", {
               refresh: localStorage.getItem("refresh_token"),
@@ -69,7 +81,24 @@ export const CurrentUserProvider = ({ children }) => {
       async (err) => {
         if (err.response?.status === 401) {
           const refreshToken = localStorage.getItem("refresh_token");
-
+          if (!refreshToken) {
+            setCurrentUser((prevCurrentUser) => {
+              if (prevCurrentUser) {
+                history.push({
+                  pathname: "/signin",
+                  state: {
+                    showNotification: true,
+                    message: "Signout out succesfully",
+                  },
+                });
+              }
+              return null;
+            });
+            removeTokenTimestamp();
+            localStorage.removeItem("token");
+            localStorage.removeItem("refresh_token");
+            return Promise.reject(err); // STOP here
+          }
           try {
             const { data } = await axios.post("/dj-rest-auth/token/refresh/", {
               refresh: refreshToken,
@@ -98,7 +127,6 @@ export const CurrentUserProvider = ({ children }) => {
           }
           return Promise.reject(err);
         }
-        
       }
     );
   }, [history, refreshToken]);
