@@ -36,7 +36,6 @@ export const CurrentUserProvider = ({ children }) => {
     axiosReq.interceptors.request.use(
       async (config) => {
         if (shouldRefreshToken()) {
-          const token = localStorage.getItem("token");
           if (token) {
             config.headers["Authorization"] = `Bearer ${token}`;
           }
