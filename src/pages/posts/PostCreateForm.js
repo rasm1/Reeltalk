@@ -69,8 +69,6 @@ function PostCreateForm() {
     formData.append("movie_spoilers", spoilers);
     if (imageInput.current?.files.length) {
       formData.append("image", imageInput.current.files[0]);
-    } else {
-      formData.append("image", "");
     }
     try {
       const token = localStorage.getItem("token");
@@ -79,7 +77,6 @@ function PostCreateForm() {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log("Post created:", data);
       history.push({
         pathname: `/posts/${data.id}`,
         state: { showNotification: true, message: "Post created succesfully!" },
