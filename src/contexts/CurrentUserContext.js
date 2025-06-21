@@ -30,7 +30,7 @@ export const CurrentUserProvider = ({ children }) => {
 
   useEffect(() => {
     handleMount();
-  }, [refreshToken]);
+  }, []);
 
   useMemo(() => {
     axiosReq.interceptors.request.use(
@@ -97,7 +97,7 @@ export const CurrentUserProvider = ({ children }) => {
             removeTokenTimestamp();
             localStorage.removeItem("token");
             localStorage.removeItem("refresh_token");
-            return Promise.reject(err); // STOP here
+            return Promise.reject(err);
           }
           try {
             const { data } = await axios.post("/dj-rest-auth/token/refresh/", {
