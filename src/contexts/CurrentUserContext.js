@@ -96,9 +96,9 @@ export const CurrentUserProvider = ({ children }) => {
             localStorage.removeItem("token");
             localStorage.removeItem("refresh_token");
           }
-          return axios(err.config);
+          return Promise.reject(err);
         }
-        return Promise.reject(err);
+        
       }
     );
   }, [history, refreshToken]);
