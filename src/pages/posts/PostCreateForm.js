@@ -112,7 +112,7 @@ function PostCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
-      {errors?.movietitle?.map((message, idx) => (
+      {errors?.movie_title?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
