@@ -41,7 +41,9 @@ export const CurrentUserProvider = ({ children }) => {
             config.headers["Authorization"] = `Bearer ${token}`;
           }
           try {
-            await axios.post("/dj-rest-auth/token/refresh/");
+            await axios.post("/dj-rest-auth/token/refresh/", {
+              refresh: localStorage.getItem("refresh_token"),
+            });
           } catch (err) {
             setCurrentUser((prevCurrentUser) => {
               if (prevCurrentUser) {
