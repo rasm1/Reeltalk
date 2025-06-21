@@ -79,6 +79,7 @@ function PostCreateForm() {
           Authorization: `Bearer ${token}`,
         },
       });
+      console.log("Post created:", data);
       history.push({
         pathname: `/posts/${data.id}`,
         state: { showNotification: true, message: "Post created succesfully!" },
