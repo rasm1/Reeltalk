@@ -2,16 +2,14 @@
 
 **Advanced Front-End Portfolio Project(PP5) - Code Institute**
 
-View the deployed site [here](https://reeltalk-project-74cd4a21e230.herokuapp.com/)<br>
+View the deployed site [here](https://reeltalk-9iif.onrender.com/)<br>
 
-The goal of this project is to create a vibrant online platform where movie enthusiasts can connect and discover new movies and share their opinions on their favorite movies By sharing and exploring these posts, users can easily find new and exciting movies and discuss their opinions.As an avid movie enthusiast I would love the idea of an open and friendly community where users can freely discuss their opinions and share their opinions on their favorite momvies.
+The goal of this project is to create a vibrant online platform where movie enthusiasts can connect and discover new movies and share their opinions on their favorite movies Byexploring posts, users can easily find new and exciting movies and discuss their opinions.As an avid movie enthusiast I would love the idea of an open and friendly community where users can freely discuss their opinions and share their opinions on their favorite momvies.
 
-The Reeltalk frontend is the user interface component of the Reeltalk application, designed with React to provide an engaging and intuitive experience for users interacting with the social network. It connects with the [Reeltalk Backend API](https://reeltalk-api-a79479495f97.herokuapp.com), enhancing user experience by offering a responsive and dynamic interface.
+The Reeltalk frontend is the user interface component of the Reeltalk application, designed with React to provide an engaging and intuitive experience for users interacting with the social network. It connects with the [Reeltalk Backend API](https://reeltalk-api.onrender.com/), enhancing user experience by offering a responsive and dynamic interface.
 
-![AmIResponsive](src/documentation/repsonsive-reeltalk.png)<br>
+![AmIResponsive](src/documentation/reeltalk-amirsponsive.png)<br>
 
-#### Note
-Due to severe time constraints much of this project has been left unfinished. Development on Reeltalk will resume after submission
 ## Table of contents
 
 - [User Experience](#user-experience)
@@ -45,12 +43,12 @@ Due to severe time constraints much of this project has been left unfinished. De
 
 ## User Experience
 
-I used an Agile methodology approach to plan this project. This was implemented through the GitHub Project board with user stories and tasks. Given the limited time frame, I've prioritized creating a broad overview of the project's features through high-level user stories. In a collaborative environment, I would delve into more granular user stories to ensure a comprehensive understanding of the requirements.
+I used an Agile methodology approach to plan this project. This was implemented through the GitHub Project board with epic, user stories and acceptance criteria. I've prioritized creating a broad overview of the project's features through high-level epic, divided into smaller user stories. In a collaborative environment, I would delve into more granular user stories to ensure a comprehensive understanding of the requirements.
 
 
 ### User stories
 
-*Reeltalk* is designed for active individuals who love to connect and explore new movies. The platform offers the posibility for users to make posts about their favorite movies sharing positives, negatives and general opnions and helps other user to get to know the information and likewise share with others. While it’s open to everyone, the primary focus is on those who have a deep passion for movies and would like to share their love with other movie enthusiasts. Reeltalk helps users connect with like-minded people and enrich their knowledge base.<br>
+*Reeltalk* is designed for individuals who love to connect and explore new movies, share their opnions about them and follow other users to see their posts. The platform offers the posibility for users to make posts about their favorite movies sharing positives, negatives and general opnions and helps other user to get to know the information and likewise share with others. While it’s open to everyone, the primary focus is on those who have a deep passion for movies and would like to share their love with other movie enthusiasts. Reeltalk helps users connect with like-minded people and enrich their knowledge base.<br>
 Each user story was classified with a label according to MoSCoW prioritization.<br>
 The Kanban board can be seen [here](https://github.com/users/rasm1/projects/4).
 
@@ -59,20 +57,16 @@ The Kanban board can be seen [here](https://github.com/users/rasm1/projects/4).
 
 ### Wireframes
 
-Due to lack of time, some of the originally planned features had to be deleted or implemented differently, set aside for later development.
-
 ![Reeltalk wireframes](/src/documentation/reeltalk-wireframes.png)
-
 
 #### Colour Scheme:
 
-The color palette was created based on the neon colors of the logo text with [ColorSpace](https://mycolor.space/?hex=%23FF3131&sub=1). The navbar has the gradient pastel colours.
-
 
 The (hex) color pallets for this project include:
--  #fff
-- #212529
-
+-  #ffffff;
+- #545865;
+- #0c0c0c;
+- #14181c;
 <br>
 
 
@@ -100,6 +94,7 @@ The header consists of the logo, which is always arranged on the left and acts a
 <br>
 
 **For Logged-Out Users:**<br>
+- *dropdown*: a white icon with 3 horizontal stripes that when clicked displays the following options:
 - *Home*: Redirects to the home page, displaying an overview of all active Groovemates posts from latest to old. <br>
 - *Sign Up*: Takes the user to the registration page to create an account and begin interacting with the site. <br>
 - *Log In*: Directs to the login page for returning users to access their accounts.<br>
@@ -114,16 +109,16 @@ The header consists of the logo, which is always arranged on the left and acts a
 
 <br>
 
-View for users who are not logged in:<br>
+View for users who are not logged out:<br>
   - Screenshot of navbar in mobile view:<br>
   ![Screenshot navbar mobile view](src/documentation/navbar-mobile.png)<br>
   - Screenshot of navbar on larger screens:<br>
-  ![Screenshot navbar on larger screens](src/documentation/navbar-logged-out.png)<br>
+  ![Screenshot navbar on larger screens](src/documentation/navbar-large.png)<br>
 
 
   View for users who are logged in:<br>
   - Screenshot of navbar in desktop view:<br>
-  ![Screenshot navbar for logged in user on larger screens](src/documentation/navbar.png)<br>
+  ![Screenshot navbar for logged in user on larger screens](src/documentation/navbar-loggedin-large.png)<br>
 <br>
 
 </details>
@@ -177,7 +172,7 @@ The profile contains the following components:<br>
 **Followers and Following Counts**: Shows how many people are following the user and how many people the user is following.<br>
 **"Bio" Description**: A personal description if the user has filled it out.<br>
 
-![Screenshot of profile page](src/documentation/profile.png)
+![Screenshot of profile page](src/documentation/profilepage.png)
 >
 **Edit a profile**<br>
 Screenshot of profile dropdown:
@@ -203,7 +198,7 @@ To add a Post, the user must sign up and log in. They can then navigate to the a
 After the user clicks the 'Create' button and all required fields are correctly filled, they will be redirected to the detail page of this Post. <br>
 
 Screenshot of 'add a Post' page:<br>
-![Screenshot of add a new Post page](src/documentation/create-post.png)<br>
+![Screenshot of add a new Post page](src/documentation/addpost.png)<br>
 
 - **Post detail view**<br>
 A Post contains several elements in its detailed view. The following elements are included for the owner of the Post:<br>
