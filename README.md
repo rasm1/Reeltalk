@@ -297,6 +297,11 @@ The Notification component is used to notify the user of succesfull manipulation
 - lack of infinite scrolling in liked and comment lists
 - Once the user does not interact with Reeltalk for more than 5 minutes. The user becomes unable to post. This can be solved by relogging and refreshing.
 
+### known bugs
+
+**400 error on signout & refresh**
+- Bug where the console displays a 400 error (bad request) when the user signs out and refreshes, likely caused by the interceptors making a request when the user is signed out.
+
 ## Technologies Used
 
 ### Languages:
