@@ -436,6 +436,6 @@ This site is deployed using Render. To deploy it from its GitHub repository to R
 ### Acknowledgments
 
 - I would like to thank my wonderful Mitko Bacharov for his numerous tips and great assistance during the creation of this project.  
-- I would like to give a shoutout to the wonderful tutor team especially, Oisin, Sarah and Rebecca who helped me numerous times when I was stuck and struggling to achieve the results I was aiming for. Your support and guidance have been amazing. Thank you!
+- I would like to give a shoutout to the wonderful tutor team especially, Oisin, Sarah and Rebecca who helped me numerous times when I was stuck and struggling to achieve the results I was aiming gfor. Your support and guidance have been amazing. Thank you!
 
 **This is for educational use.**
