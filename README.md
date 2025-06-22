@@ -195,7 +195,7 @@ Post Management includes the following topics:<br>
 
  - **Adding a new Post**<br>
 To add a Post, the user must sign up and log in. They can then navigate to the appropriate page via the navigation bar.
-After the user clicks the 'Create' button and all required fields are correctly filled, they will be redirected to the detail page of this Post. <br>
+After the user clicks the 'Create' button and all required fields are correctly filled, they will be redirected to the detail page of this Post. A notification will be displayed that the post has been submitted succesfully. <br>
 
 Screenshot of 'add a Post' page:<br>
 ![Screenshot of add a new Post page](src/documentation/addpost.png)<br>
@@ -212,12 +212,12 @@ A Post contains several elements in its detailed view. The following elements ar
 
 
 - **Edit a Post**<br>
-As part of the full CRUD functionality, the Post owner has the ability to edit the Post. When a user clicks the link to edit their Post, they are redirected to a form page where the existing data is already populated in the corresponding fields. The form retains the same validations as the "Create a Post" form, including image size limits (maximum 2 MB). After the user clicks the "save" button, they are redirected to the Post's detail page where you can see the update post.<br>
+As part of the full CRUD functionality, the Post owner has the ability to edit the Post. When a user clicks the link to edit their Post, they are redirected to a form page where the existing data is already populated in the corresponding fields. The form retains the same validations as the "Create a Post" form, including image size limits (maximum 2 MB). After the user clicks the "save" button, they are redirected to the Post's detail page where you can see the update post. A notification will pop up notifying the user that the post has been updated succesfully.<br>
 
 
 
 - **Delete a Post**<br>
-As part of the full CRUD functionality, the Post owner can delete a Post. This can be achieved from the Post overview by clicking on the dropdown icon as well as from the detail page of the Post. After successful deletion, the user is redirected back to the homepage and the corresponding Post is deleted from the database and the overview.<br>
+As part of the full CRUD functionality, the Post owner can delete a Post. This can be achieved from the Post overview by clicking on the dropdown icon as well as from the detail page of the Post. After successful deletion, the user is redirected back to the homepage and the corresponding Post is deleted from the database and the overview. A notification will pop up notifying that the post has been deleted succesfully.<br>
 
 
 
@@ -247,8 +247,8 @@ Users can interact with the Post by adding comments: <br>
 
 The user's profile image is displayed next to the comment form field. After entering a comment and clicking the "post" button, the comment is displayed under the Post in a list format. Each comment includes the commenter's profile image, the time when the comment was added, and the comment content.
 If the currently logged-in user is the owner of the comment, dropdown icon appear next to the comment, providing options to edit or delete the comment. <br>
-- *Edit*: When the user clicks "Edit" on their comment, the comment form reopens with the existing content. The user can then update the comment and save the changes. Alternatively, they can cancel the edit, which will close the form, leaving the comment unchanged. <br>
-- *Delete*: When the user clicks "Delete" on their comment. Upon confirming the deletion, the comment is removed from the list.
+- *Edit*: When the user clicks "Edit" on their comment, the comment form reopens with the existing content. The user can then update the comment and save the changes. Alternatively, they can cancel the edit, which will close the form, leaving the comment unchanged. Once the comment is edited a notification will show up that the comment has been edited succesfully. <br>
+- *Delete*: When the user clicks "Delete" on their comment. Upon confirming the deletion, the comment is removed from the list. Once deleted a notification will show up that the comment has been deleted succesfully.
 
 
 </details>
@@ -259,8 +259,6 @@ If the currently logged-in user is the owner of the comment, dropdown icon appea
 
 - *Delete a Profile*: Allow users to permanently delete their profiles from the platform. This feature will include necessary confirmations and safeguards to prevent accidental deletions.<br>
 - *movie trailer*: Allows users to link a movie trailer in their posts.
-- *Confirmation messages*: success messages for all the functionality like delete, updated etc
-- *Custom Css*: Custom CSS that appeals to the eye
 - *Error handling*: Error handling for an improved user experience
 - *enhanced spoiler warning*: Enhanced spoiler warning that covers spoiler text
 
@@ -292,15 +290,12 @@ The Navbar component played a central role in the application's navigation, offe
 **NotFound.js**<br>
 The NotFound component is a specialized component designed to handle 404 errors, providing users with a clear indication that the page they are trying to access does not exist.
 
+**Notification.js**<br>
+The Notification component is used to notify the user of succesfull manipulation of data.
+
 ## Known Bugs
 - lack of infinite scrolling in liked and comment lists
-- post images not loading
-- avatar images not loading
-- comments not able to be posted
-- data fields not prepopulated in edit post page
-
-
-
+- Once the user does not interact with Reeltalk for more than 5 minutes. The user becomes unable to post. This can be solved by relogging and refreshing.
 
 ## Technologies Used
 
@@ -313,6 +308,7 @@ The NotFound component is a specialized component designed to handle 404 errors,
 - [Git](https://git-scm.com/) was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 - [GitHub](https://github.com/) was used to save and store the files for the website.
 - [Heroku](https://www.heroku.com) was used to deploy the application.
+- [Render](https://render.com/) after experiencing technical diffuclties with heroku, render was used to deploy the program.
 - [Code Insitute Database Maker](https://dbs.ci-dbs.net/) PostgreSQL database hosting for this project
 - [Fontawesome](https://fontawesome.com/) was used to add icons to the website.
 - [tinypng](https://tinypng.com/) was used to reduce the image sizes.
