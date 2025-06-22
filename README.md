@@ -382,20 +382,21 @@ The app was tested regularly and deployed early to Heroku to make sure both loca
 
 ## Deployment
 
-### Heroku
-This site is deployed using Heroku. To deploy it from its GitHub repository to Heroku, I took the following steps:
+### Render
+This site is deployed using Render. To deploy it from its GitHub repository to Render, I took the following steps:
 
-1. Log in (or sign up) to Heroku
-2. Click on the _New_ button and select _Create new app_
-3. Give it a unique name and choose the region _Europe_
-4. Click the *Deploy* tab, go to the _Deployment method_ section, select _GitHub_ and confirm this selection by clicking on the _Connect to Github_ button
-5. Search for the repository name on github Reeltalk and click the _Connect_ button
-6. Inside the src folder add an api folder and create an axiosDefault.jsx
-7. Add the link to the deployed version of the api as baseURL
-8. Create a _Procfile_ in the root directory and add *web: npm run start*
-9. In Heroku enable the automatic deploy or manually deploy the code from the main branch
-
-To see the [view of the live site ](https://reeltalk-api-a79479495f97.herokuapp.com/) click on the _Open app_ button in the top right corner or, if you enabled automatic deploy (step 10), log in to GitHub, navigate to the repository for this project by selecting [Reeltalk](https://github.com/rasm1/Reeltalk), click on _Deployment_ and choose in the _Environments_ section  Reeltalk. <br>
+1. Log in (or sign up) to Render
+2. In src/api/axiosDefaults.js update the baseURL to this: https://reeltalk-9iif.onrender.com/
+3. git add, commit and push changes
+4. click "new+"
+5. click "Static Site"
+6. Search for the relevan repo and connect (reeltalk)
+7. ensure that Root directory is blank
+8. ensure that branch is set to main / master
+9. Set build command to: yarn build
+10. set the publish directory to build
+11. Click "create Static Site"
+<br>
 
 ### Forking this GitHub repository
 1.  Log in to GitHub.
@@ -412,7 +413,7 @@ To see the [view of the live site ](https://reeltalk-api-a79479495f97.herokuapp.
 6. Press the enter key
 
 ## Credits
-
+- the Styling of the pages was inspired by [Letterboxd](https://letterboxd.com)
 
 ### Code
 
@@ -435,6 +436,6 @@ To see the [view of the live site ](https://reeltalk-api-a79479495f97.herokuapp.
 ### Acknowledgments
 
 - I would like to thank my wonderful Mitko Bacharov for his numerous tips and great assistance during the creation of this project.  
-- I would like to give a shoutout to the wonderful tutor team especially, Oisin, Thomas and Rebecca who helped me numerous times when I was stuck and struggling to achieve the results I was aiming for. Your support and guidance have been amazing. Thank you!
+- I would like to give a shoutout to the wonderful tutor team especially, Oisin, Sarah and Rebecca who helped me numerous times when I was stuck and struggling to achieve the results I was aiming for. Your support and guidance have been amazing. Thank you!
 
 **This is for educational use.**
